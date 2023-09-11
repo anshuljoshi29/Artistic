@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'nav.html' %}
+
+<section class="home">
+  <div class="ellipse-2"></div>
+  <div class="ellipse-1"></div>
+  <div class="full-img" id="fullImgBox">
+    <img src="" id="fullImg">
+    <span onclick="closeFullImg()">X</span>
+  </div>
+  <ul class="img-gallery">
+    {% for image in images %}
+      <li>
+        <img src="{{ image.urls.full }}" alt="{{ image.alt_description }}" onclick="openFullImg('{{ image.urls.full }}')">
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+{% endblock %}
+
+{% block script %}
+<script>
+  var fullImgBox = document.getElementById("fullImgBox");
+  var fullImg = document.getElementById("fullImg");
+
+  function openFullImg(pic) {
+    fullImgBox.style.display = "flex";
+    fullImg.src = pic;
+  }
+
+  function closeFullImg() {
+    fullImgBox.style.display = "none";
+  }
+</script>
+{% endblock %}

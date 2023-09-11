@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<header class="header">
+    <a href="{% url 'home' %}" class="logo">Artistic</a>
+    <nav class="navbar">
+        {% comment %} <a href={% url 'fetch_images' %} class="active">Images</a> {% endcomment %}
+        <a href="{% url 'home' %}">
+            <img src="{% static 'assets/fav.png' %}" alt="Images" class="custom-image">
+        </a>
+        {% comment %} <a href={% url 'about' %} >About</a>
+        <a href={% url 'contact' %}>Contact</a>
+        <a href={% url 'skills' %} >Skills</a> {% endcomment %}
+  
+</header>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+{% endblock %}
